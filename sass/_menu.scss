@@ -1,0 +1,304 @@
+
+:root {
+    --main_text_color: #fffbe6;
+    --blueish_menu_button_color: rgba(47, 72, 88, 0.53);
+    --hover_meal_color: rgba(255, 227, 191, 0.84);
+    --hover_selected_nav_link:rgba(255, 251, 230, 0.53);
+    --background_color: rgba(7, 4, 4, 1);
+}
+
+body {
+    background-color: var(--background_color);
+}
+
+
+@mixin brand_logo {
+    font-size: 3rem;
+    margin-top: 1rem;
+    margin-left: 1.5rem;
+    letter-spacing: 3px;
+    border-bottom: 1px solid var(--main_text_color);
+    font-family: 'Poiret One', sans-serif;
+}
+
+@mixin navbar_link {
+    width: 100px;
+    height: 45px;
+    text-decoration: none;
+    font-family: 'Poiret One', sans-serif;
+    font-size: 1rem;
+    border-radius: 6px;
+    background-color: var(--blueish_menu_button_color);
+    color: var(--main_text_color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem 1rem 0 1rem;
+    cursor: pointer;
+    transition: background-color 200ms ease-in-out;
+    &:hover {
+        background-color: var(--hover_selected_nav_link);
+    }
+}
+
+@mixin h2_title_section {
+    font-size: 3rem;
+    letter-spacing: 3px;
+    text-align: center;
+    margin: auto {
+        top: 12rem;
+        bottom: 10rem;
+    }
+}
+
+// ---------------------------------------------------------
+//*             Here you can modify the nav section
+// ---------------------------------------------------------      
+
+#nav_bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--main_text_color);
+    position: relative;
+
+    #brand-image {
+        h1 {
+            @include brand_logo();
+            position: relative;
+            z-index: 150;
+        }
+    }
+}   
+
+
+// ---------------------------------------------------------
+//*             Here you can modify the menu section
+// ---------------------------------------------------------
+
+h1.title_section {
+    text-align: center;
+    font-family: 'Poiret One', sans-serif;
+    font-size: 4.5rem;
+    color: var(--main_text_color);
+    z-index: 150;
+    position: relative;
+}
+
+//           *****main image style****
+.main_title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../images/menu_background.jpeg);
+    height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation-name: smoothZoom;
+    animation-duration: 5.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+    h1 {
+        animation-name: smoothZoom-reverse;
+        animation-duration: 5.5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    &:after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: #000;
+        opacity: 0.3;
+        z-index: 100;
+    }
+}
+
+//           *****main image ANIMATION****
+
+@keyframes smoothZoom {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes smoothZoom-reverse {
+    0% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+//           *****ANIMATION ENDS****
+
+
+#brunch-section {grid-area: brunch;}
+#lunch_section {grid-area: lunch;}
+#dinner_section {grid-area: dinner;}
+#dessert_section {grid-area: dessert;}
+
+#container {
+    display: grid;
+    justify-content: space-between;
+    justify-items: center;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: 
+    "brunch lunch"
+    "dinner dessert";
+    font-family: 'Poiret One', sans-serif;
+    color: var(--main_text_color);
+    width: 85%;
+    margin: auto;
+    gap: 5rem;
+
+    .menu_category {
+        text-align: center;
+        border-bottom: 1px solid var(--main_text_color);
+        border-top: 1px solid var(--main_text_color);
+        padding-block: 1rem;
+        margin: auto {
+            left: 0.3rem;
+            right: 0.3rem;
+            top: 5rem;
+            bottom: 1.5rem;
+        }
+    }
+    hr.line_mobile {
+        display: none;
+    }
+// ---------------------------------------------------------
+//*        Here you can modify the description of the dishes
+// ---------------------------------------------------------
+    p.name_dish {
+        line-height: 2rem;
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+        text-align: start;
+    }
+
+    p.dish_description {
+        letter-spacing: 2px;
+        margin-bottom: 4.5rem;
+        color: var(--hover_selected_nav_link);
+    }
+}
+
+.line_before_footer {
+    margin-inline: 3rem;
+    margin-top: 5rem;
+    margin: auto {
+        top: 5rem;
+        left: 3rem;
+        right: 3rem;
+        bottom: 6rem;
+    }
+    color: var(--main_text_color);
+}
+
+// ---------------------------------------------------------
+//               *******MEDIA QUERIES*******
+// ---------------------------------------------------------
+
+
+
+// ---------------------------------------------------------
+// *                         Tablet Style
+// ---------------------------------------------------------
+@media screen and (max-width: 990px) {
+    #container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas: 
+            "brunch"
+            "lunch"
+            "dinner"
+            "dessert";
+        border-bottom: var(--main_text_color);
+        width: 90%;
+        margin: auto;
+
+        h2.menu_category {
+            margin-top: 3rem;
+        }
+    }
+
+    @mixin brand_logo_mobile {
+        font-size: 2rem;
+        margin-top: 1rem;
+        margin-left: 1.5rem;
+        letter-spacing: 3px;
+        border-bottom: 1px solid var(--main_text_color);
+    }
+    
+    body {
+        
+        #nav_bar {
+            display: flex;
+            flex-direction: column;
+            
+            #brand-image {
+                h1 {
+                    @include brand_logo_mobile;
+                    width: fit-content;
+                    
+                }
+            }
+        }
+    }
+
+    .main_title {
+        height: 350px;
+    }
+}
+// ---------------------------------------------------------
+//*                      Mobile Style
+// ---------------------------------------------------------
+@media screen and (min-width: 390px) and (max-width: 660px)  {
+
+    #container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas: 
+            "brunch"
+            "lunch"
+            "dinner"
+            "dessert";
+        border-bottom: var(--main_text_color);
+        width: 90%;
+        margin: auto;
+        font-size: 1rem;
+
+        p.name_dish {
+            font-size: 1rem;
+        }
+
+        h2.menu_category {
+            margin-top: 3rem;
+        }
+
+        .meal_box {
+            margin-bottom: -2rem;
+        }
+    }
+
+    .main_title {
+        height: 250px;
+    }
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flavor Mosaic Restaurant</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <script src="./js/main.js" defer></script>
+</head>
+
+<body>
+  <header class="contact-header">
+    <nav id="nav_bar">
+      <div id="brand-image">
+        <h1>Flavor Mosaic</h1>
+      </div>
+
+      <div id="buttons_top" class="navbar">
+        <a class="navbar-link" href="/">Home</a>
+        <a class="navbar-link" href="menu.html">Menu</a>
+        <a class="navbar-link" href="history.html">History</a>
+        <a class="navbar-link navbar-link--selected" href="contact.html">Contact</a>
+      </div>
+    </nav>
+
+    <div id="hamburger-icon" class="hamburger-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="#2f4858">
+        <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+      </svg> 
+    </div>
+  </header>
+
+  <div class="welcome-heading">
+    <h2>Come to Visit Us</h2>
+    <p class="welcome-description">We welcome all our guests as part of the family. Come visit us in beautiful Vancouver restaurant and enjoy the city view along with our award-winning cuisine.</p>
+  </div>
+
+  <section class="container">
+
+    <section class="welcome">
+      <section class="welcome-map">
+        <picture>
+          <source media="(min-width: 576px)" srcset="./images/vancouver-map.png">
+          <img src="./images/vancouver-map-mobile.png" alt="Vancouver Map" />
+        </picture>
+      </section>
+      <section class="welcome-data">
+        <section class="welcome-data-contact welcome-data-telephone">
+          <img class="welcome-data-icon" src="./images/svg/phone_icon.svg" alt="Phone Icon">
+          <span>604-333-4444</span>
+        </section>
+        <section class="welcome-data-contact welcome-data-email">
+          <img class="welcome-data-icon" src="./images/svg/envelope-email-icon.svg" alt="Mail Icon">
+          <span>contact@flavormosaic.ca</span>
+        </section>
+        <section class="welcome-data-hours">
+          <h3>Schedule Hours</h3>
+          <ul>
+            <li>Tuesday - Friday 10AM - 11PM</li>
+            <li>Saturday - Sunday 12 PM - 12AM</li>
+            <li>Monday - Closed </li>
+          </ul>
+        </section>
+      </section>
+    </section>
+
+    <section class="reservations">
+      <h2 class="reservations-heading">Reservations</h2>
+      <form class="form">
+        <section class="form-container">
+          <section class="form-group form-full_name">
+            <input
+              id="full_name"
+              type="text"
+              name="full_name"
+              placeholder="Full Name"
+              autocomplete="off"
+            />
+          </section>
+          <section class="form-group form-email">
+            <input
+              id="email"
+              type="email"
+              name="email"
+              placeholder="E-mail Address"
+              autocomplete="off"
+            />
+          </section>
+          <section class="form-group form-quantity">
+            <input
+              id="quantity"
+              type="number"
+              name="quantity"
+              min="0"
+              placeholder="Quantity"
+              autocomplete="off"
+            />
+          </section>
+          <section class="form-group form-date">
+            <input id="date" type="date" name="date" />
+          </section>
+          <section class="form-group form-time">
+            <input id="time" type="time" name="time" />
+          </section>
+          <section class="form-group form-requirements">
+            <textarea
+              id="requirements"
+              name="requirements"
+              placeholder="Special Requirements"
+              autocomplete="off"
+            ></textarea>
+          </section>
+          <section class="form-button">
+            <button type="submit">Book</button>
+          </section>
+        </section>
+      </form>
+    </section>
+
+  </section>
+
+  <hr class="footer">
+
+  <footer>
+    <div id="brand_logo_footer">
+      <a href="#brand-image">
+        <h1>Flavor Mosaic</h1>
+      </a>
+    </div>
+
+    <div id="address_footer">
+      <p>Address: Vancouver</p>
+    </div>
+
+    <div id="footer_icons">
+      <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+        <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+        <path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z" />
+      </svg>
+    </div>
+
+  </footer>
+</body>
+
+</html>

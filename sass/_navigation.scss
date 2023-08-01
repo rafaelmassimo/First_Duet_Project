@@ -1,0 +1,117 @@
+//* =================================================
+//* -------------------- MOBILE ---------------------
+//* =================================================
+@media (min-width: 0) {  
+  .navbar {
+    display: none;
+    width: 100%;
+    margin: auto;
+    z-index: 2000;
+    padding: 1.7rem 1.5rem;
+    background-color: #333;
+    font-family: 'Poiret One', sans-serif;
+    &-display {
+      display: block;
+    }
+    &-link {
+      display: block;
+      color: $hover_selected_nav_link;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+      &:hover {
+        color: inherit;
+      }
+      &:active {
+        color: $hover_selected_nav_link;
+      }
+      &--selected {
+        color: $main_text_color;
+      }
+    }
+  }
+  
+  .hamburger-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+  
+    cursor: pointer;
+    z-index: 1000;
+  
+    svg {
+      fill: $main_text_color;
+  
+      &:active {
+        fill: lighten($blueish_menu_button_color, 30%);
+      }
+    }
+  }
+}
+
+//* =================================================
+//* -------------------- TABLETS --------------------
+//* =================================================
+@media (min-width: 576px) {}
+
+//* ==================================================
+//* -------------------- DESKTOP ---------------------
+//* ==================================================
+@media (min-width: 992px) {
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    z-index: 1000;
+  
+    &-link {
+      width: 100px;
+      height: 45px;
+      text-decoration: none;
+      font-family: 'Poiret One', sans-serif;
+      font-size: 1rem;
+      border-radius: 6px;
+      background-color: $blueish_menu_button_color;
+      color: $main_text_color;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 1.5rem 1rem 0 1rem;
+      cursor: pointer;
+      transition: background-color 200ms ease-in-out;
+    
+      &:hover {
+        background-color: var(--hover_selected_nav_link);
+        color: inherit;
+      }
+    
+      z-index: 1000;
+    }
+  
+    .navbar-link--selected {
+      // @extend .navbar-link;
+      background-color: var(--hover_selected_nav_link);
+    }
+  }
+  .hamburger-icon {
+    display: none;
+  }
+}
+
+//* ==================================================
+//* ------------------ DESKTOP LARGE -----------------
+//* ==================================================
+@media (min-width: 1200px) {}
+
+//* ==================================================
+//* ----------------- DESKTOP X-LARGE ----------------
+//* ==================================================
+@media (min-width: 1400px) {}

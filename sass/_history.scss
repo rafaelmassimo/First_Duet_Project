@@ -1,0 +1,418 @@
+:root {
+    --main_text_color: #fffbe6;
+    --blueish_menu_button_color: rgba(47, 72, 88, 0.53);
+    --hover_meal_color: rgba(255, 227, 191, 0.84);
+    --hover_selected_nav_link:rgba(255, 251, 230, 0.53);
+    --background_color: rgba(7, 4, 4, 1);
+}
+
+body {
+    background-color: var(--background_color);
+}
+
+
+@mixin brand_logo {
+    font-size: 3rem;
+    margin-top: 1rem;
+    margin-left: 1.5rem;
+    letter-spacing: 3px;
+    border-bottom: 1px solid var(--main_text_color);
+}
+
+@mixin h2_title_section {
+    font-size: 3rem;
+    letter-spacing: 3px;
+    text-align: center;
+    margin: auto {
+        top: 12rem;
+        bottom: 10rem;
+    }
+}
+
+@mixin h3_meal_box_title {
+    font-size: 2rem;
+    text-align: center;
+    letter-spacing: 2px;
+
+}
+
+@mixin paragraph_style {
+    width: fit-content;
+    text-align: justify;
+    line-height: 3rem;
+    font-size: 1.7rem;
+    letter-spacing: 2px;
+}
+
+@mixin images_boxes {
+    width: 400px;
+    height: 400px;
+    // margin-top: 2rem;
+}
+
+// ---------------------------------------------------------------------
+// *            Here you can modify the nav buttons section
+// ---------------------------------------------------------------------
+
+#nav_bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    #brand-image {
+        h1 {
+            @include brand_logo();
+            position: relative;
+            z-index: 150;
+        }
+    }
+}
+
+// ---------------------------------------------------------------------
+//*             Here you can modify the first history section
+// ---------------------------------------------------------------------
+
+#history_section {
+
+    #history_paragraph {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: auto {
+            top: 15rem;
+            bottom: 15rem;
+        }
+
+        p {
+            @include paragraph_style();
+            margin-left: 6rem;
+            color: var(--main_text_color);
+            text-align: justify;
+            letter-spacing: 2px;
+        }
+
+        img {
+            width: 420px;
+            height: auto;
+            margin-left: 1.5rem;
+            }
+    }
+}
+
+#history_header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../images/history-background.jpeg);
+    height: 500px;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation-name: smoothZoom;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+    h2 {
+        animation-name: smoothZoom-reverse;
+        animation-duration: 10s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    &:after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: #000000;
+        background-size: cover;
+        opacity: 0.3;
+        z-index: 100;
+        }
+
+        h2.section-title {
+            @include h2_title_section;
+            font-size: 4.5rem;
+            color: var(--main_text_color);
+            z-index: 150;
+        }
+}
+
+//           *****main image ANIMATION****
+
+@keyframes smoothZoom {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes smoothZoom-reverse {
+    0% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+//           *****ANIMATION ENDS****
+
+// ---------------------------------------------------------------------
+//*             Here you can modify the philosophy section
+// ---------------------------------------------------------------------
+
+#philosophy_history_paragraph {
+
+    #philosophy_title {
+        h2 {
+            @include h2_title_section();
+            display: grid;
+            grid-template-columns: 1fr max-content 1fr;
+            grid-column-gap: 1.2rem;
+            align-items: center;
+            color: var(--main_text_color);
+
+
+            &::before , &::after {
+                content: "";
+                display: block;
+                height: 1px;
+                background-color: var(--main_text_color);
+            }
+        }
+    }
+
+    p {
+        @include paragraph_style();
+        text-align:justify;
+        color: var(--main_text_color);
+        letter-spacing: 2px;
+    }
+}
+
+// ---------------------------------------------------------------------
+// *            Here you can modify the Meals section
+// ---------------------------------------------------------------------
+
+#meals-section {
+    #brunch_box {grid-area: brunch;}
+    #lunch_box {grid-area: lunch;}
+    #dinner_box {grid-area: dinner;}
+    #desserts_box {grid-area: dessert;}
+    margin-bottom: 15rem;
+
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas:
+    "brunch lunch"
+    "dinner dessert";
+    justify-items: center;
+    gap: 100px;
+
+    .meal_box {
+        margin-top: 9rem
+    }
+
+    .meal_container {
+        position: relative;
+        width: 400px;
+        height: 400px;
+
+        &:hover .text_overlay {
+            opacity: 1.3;
+            cursor: pointer;
+        }
+    }
+
+    .text_overlay {
+        transition: ease-in-out 0.4s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        position: absolute;
+        border-radius: 6px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color:rgba(255, 227, 191, 0.92);
+        z-index: 1;
+    }
+
+    h3 {
+        @include h3_meal_box_title();
+        margin-bottom: 2rem;
+        color: var(--main_text_color);
+
+        &::after {
+            content:' ';
+            display:block;
+            border: 0.3px solid var(--main_text_color);
+            margin-inline: 30px;
+        }
+    }
+
+    img {
+        @include images_boxes();
+        padding: 0;
+    }
+
+    p.no_display_text {
+        color: rgba(74, 71, 55, 1);
+        font-size: 20px;
+        position: absolute;
+        text-align: center;
+        line-height: 2rem;
+        font-family: 'Poiret One', sans-serif;
+        font-weight: bold;
+
+        a {
+            color: rgba(74, 71, 55, 1);
+        }
+    }
+}
+
+// ---------------------------------------------------------------------
+//                   *******MEDIA QUERIES*******
+// ---------------------------------------------------------------------
+
+
+
+
+// ---------------------------------------------------------------------
+//  *                        Tablet Style
+// ---------------------------------------------------------------------
+@mixin brand_logo_mobile {
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-left: 1.5rem;
+    letter-spacing: 3px;
+    border-bottom: 1px solid var(--main_text_color);
+}
+
+
+@media screen and (max-width: 990px) {
+    #nav_bar {
+        display: flex;
+        flex-direction: column;
+        
+        #brand-image {
+            h1 {
+                @include brand_logo_mobile;
+                width: fit-content;
+                
+            }
+        }
+    }
+
+
+//                        Main content Section
+    #history_header { 
+        // grid-area: title;
+        height: 350px;
+    }
+    // #image_hands { grid-area: hands; }
+    // #paragraph_ { grid-area: paragraph; }
+
+    // #history_section {
+    //     display: grid;
+    //     grid-template-columns: auto;
+    //     grid-template-rows: repeat(3, auto);
+    //     grid-template-areas:
+    //         "title"
+    //         "hands"
+    //         "paragraph";
+    #history_section {
+
+        #history_paragraph {
+            flex-direction: column;
+            margin: auto {
+                top: 10rem;
+                bottom: 10rem;
+        }}
+
+        p {
+            margin: 0 !important;
+            margin-top: 1rem !important;
+        }
+        
+        #image_hands img {
+            width: 320px;
+            height: auto;
+        }
+    }
+
+//                         Meals Section
+    #meals-section {
+        display: grid;
+        grid-template-columns: auto;
+        justify-content: center;
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas:
+        "brunch"
+        "lunch"
+        "dinner"
+        "dessert";
+
+        .meal_box {
+            margin-top:0;
+        }
+    }
+}
+
+
+// ---------------------------------------------------------
+//*                      Mobile Style
+// ---------------------------------------------------------
+@media screen and (min-width: 390px) and (max-width: 660px) {
+    #history_header { 
+        height: 250px;
+    }
+
+    #history_section {
+        
+        #history_paragraph {
+            flex-direction: column;
+            margin: auto {
+                top: 5rem;
+                bottom: 5rem;
+            }}
+        
+        #image_hands img {
+            width: 220px;
+            height: auto;
+        }
+
+        p {
+            font-size: 1rem !important;
+            line-height: 2.5rem;
+            letter-spacing: 2px;
+        }
+    }
+
+    #philosophy_history_paragraph {
+        #philosophy_title {
+            h2 {
+                margin-block: 5rem;
+            }
+        }
+
+
+        p {
+            font-size: 1rem !important;
+            line-height: 2.5rem;
+            letter-spacing: 2px;
+        }
+    }
+}
